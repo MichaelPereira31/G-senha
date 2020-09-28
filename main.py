@@ -85,7 +85,7 @@ class Aplication:
     def submit(self):
 
         email_from = "michaelpereira31082000@gmail.com"
-        senha_from = "2015michael123456789"
+        senha_from = "*********"
 
         email_to = str(self.email.get())
         empresa = str(self.empresa.get())
