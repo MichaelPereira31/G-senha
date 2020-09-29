@@ -1,6 +1,7 @@
 from tkinter import *
 import random 
 import smtplib
+import webbrowser
 
 class Aplication: 
     def __init__(self,master=None):
@@ -65,8 +66,8 @@ class Aplication:
         self.enviar['command'] = self.submit
         self.enviar.pack(side=LEFT)
 
-        self.configBtn = Button(self.sextoContainer,text='Configurações')
-        self.configBtn['command'] = self.config
+        self.configBtn = Button(self.sextoContainer,text='Criar E-mail')
+        self.configBtn['command'] = self.criarEmail
         self.configBtn.pack(side=LEFT)
 
         self.mensagem = Label(self.setimoContainer,text='')
@@ -85,7 +86,7 @@ class Aplication:
     def submit(self):
 
         email_from = "michaelpereira31082000@gmail.com"
-        senha_from = "*********"
+        senha_from = "************"
 
         email_to = str(self.email.get())
         empresa = str(self.empresa.get())
@@ -122,6 +123,10 @@ class Aplication:
         top = Toplevel()
         Conta(top)
         top.mainloop()
+    
+    def criarEmail(self):
+        webbrowser.open('https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp')
+
 class Conta: 
     def __init__(self,master=None):'''
         self.umContainer = Frame(master) 
