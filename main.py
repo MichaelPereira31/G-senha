@@ -67,7 +67,7 @@ class Aplication:
         self.enviar.pack(side=LEFT)
 
         self.configBtn = Button(self.sextoContainer,text='Criar E-mail')
-        self.configBtn['command'] = self.criarEmail
+        self.configBtn['command'] = self.config
         self.configBtn.pack(side=LEFT)
 
         self.mensagem = Label(self.setimoContainer,text='')
@@ -86,7 +86,7 @@ class Aplication:
     def submit(self):
 
         email_from = "michaelpereira31082000@gmail.com"
-        senha_from = "************"
+        senha_from = "******************"
 
         email_to = str(self.email.get())
         empresa = str(self.empresa.get())
@@ -128,7 +128,7 @@ class Aplication:
         webbrowser.open('https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp')
 
 class Conta: 
-    def __init__(self,master=None):'''
+    def __init__(self,master=None):
         self.umContainer = Frame(master) 
         self.umContainer['pady'] = 10
         self.umContainer.pack()
@@ -136,6 +136,19 @@ class Conta:
         self.doisContainer = Frame(master)
         self.doisContainer['pady'] = 10
         self.doisContainer.pack()
+        
+        btnGoogle = Button(self.umContainer,text="Criar conta Google")
+        btnGoogle['width'] = 20
+        btnGoogle['command'] = self.contaGoogle
+        btnGoogle.pack(side=LEFT)
+
+        btnMicrosoft = Button(self.doisContainer,text="Criar conta Microsoft")
+        btnMicrosoft['width'] = 20
+        btnMicrosoft['command'] = self.contaMicrosoft
+        btnMicrosoft.pack(side=LEFT)
+
+        '''
+    
         
         self.tresContainer = Frame(master)
         self.tresContainer['pady'] = 10
@@ -179,6 +192,14 @@ class Conta:
 
         self.mensagem = Label(self.cincoContainer,text='')
         self.mensagem.pack()'''
+    
+    def contaGoogle(self):
+        webbrowser.open('https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp')
+        self.umContainer.destroy()
+        
+
+    def contaMicrosoft(self):
+        webbrowser.open('https://signup.live.com/signup?mkt=pt-BR&uaid=61b4da86be2f4f6d869b277a6af6248a&lic=1')
 root = Tk()
 Aplication(root)
 root.mainloop()
