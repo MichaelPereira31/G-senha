@@ -86,7 +86,7 @@ class Aplication:
     def submit(self):
 
         email_from = "michaelpereira31082000@gmail.com"
-        senha_from = "******************"
+        #senha_from = "******************"
 
         email_to = str(self.email.get())
         empresa = str(self.empresa.get())
@@ -98,7 +98,7 @@ class Aplication:
         server.ehlo()
         server.starttls()
         server.ehlo()
-        server.login(email_from, senha_from)
+        server.login(email_from, open('senha.txt').read().strip())
 
         #msg = 'Empresa: %s \nE-mail: %s \nSenha: %s'%(empresa,email_to,senha_to)
         emp = 'Empresa: '+empresa
